@@ -1,7 +1,7 @@
 XPath generation library
 
 
-### Exaples
+### Examples
 
 ```javascript
 var xpgen = require("xpgen");
@@ -11,3 +11,7 @@ path = xpgen.find("div").id("container").find().class("row").toString(); // //di
 path = xpath.find().text().contains("hello").toString(); // //*[contains(text(), "hello")]
 path = xpath.find("a").attr("href", "http://classdojo.com").element("img").toString(); // //a[href='http://classdojo.com']/img
 ```
+
+## API
+
+TODO
