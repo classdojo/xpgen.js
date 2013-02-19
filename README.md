@@ -127,7 +127,7 @@ xpgen.element("div").eq("@data-age", 50).or().eq("@data-age", "60");
 ### .and()
 
 ```javascript
-// div[contains(@class, 'account') and href='http://site.com/account']
+// a[contains(@class, 'account') and href='http://site.com/account']
 xpgen.element("a").contains("class", "account").and().eq("href", "http://site.com/account"); 
 ```
 
