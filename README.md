@@ -74,7 +74,7 @@ xpgen.element("div").contains('text()', "tacos")
 
 ### .eq(attribute, value)
 
-```javascipt
+```javascript
 // div[@data-age='50']
 xpgen.element("div").eq("@data-age", 50); 
 ```
@@ -83,35 +83,35 @@ xpgen.element("div").eq("@data-age", 50);
 
 **not equal** search:
 
-```javascipt
+```javascript
 // div[@data-age!='50']
 xpgen.element("div").eq("@data-age", 50); 
 ```
 
 ### .gt(attribute, value)
 
-```javascipt
+```javascript
 // div[@data-age>'50']
 xpgen.element("div").gt("@data-age", 50); 
 ```
 
 ### .lt(attribute, value)
 
-```javascipt
+```javascript
 // div[@data-age<'50']
 xpgen.element("div").gt("@data-age", 50); 
 ```
 
 ### .gte(attribute, value)
 
-```javascipt
+```javascript
 // div[@data-age>='50']
 xpgen.element("div").gt("@data-age", 50); 
 ```
 
 ### .lte(attribute, value)
 
-```javascipt
+```javascript
 // div[@data-age<='50']
 xpgen.element("div").gt("@data-age", 50); 
 ```
@@ -119,14 +119,14 @@ xpgen.element("div").gt("@data-age", 50);
 ### .or()
 
 
-```javascipt
+```javascript
 // div[@data-age='50' or @data-age='60']
 xpgen.element("div").eq("@data-age", 50).or().eq("@data-age", "60"); 
 ```
 
 ### .and()
 
-```javascipt
+```javascript
 // div[contains(@class, 'account') and href='http://site.com/account']
 xpgen.element("a").contains("class", "account").and().eq("href", "http://site.com/account"); 
 ```
