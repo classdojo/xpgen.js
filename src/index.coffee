@@ -11,9 +11,15 @@ XPGen = class extends require("./base")
     @_dictionary = new Dictionary()
 
   ###
+   DEPRECATED for path
   ###
 
-  chain: (name) -> return @_dictionary.get(name).clone()
+  chain: (name) -> return @path name
+
+  ###
+  ###
+
+  path: (name) -> return @_dictionary.get(name).clone()
 
   ###
   ###

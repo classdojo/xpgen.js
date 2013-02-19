@@ -31,7 +31,7 @@ path = xpath.find("a").eq("href", "http://classdojo.com").element("img").toStrin
 Starts a chain with the given node name
 
 
-### Chain .chain(name)
+### Chain .path(name)
 
 Returns a registered chain
 

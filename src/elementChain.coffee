@@ -25,7 +25,7 @@ module.exports = class ElementChain extends require("./base")
   ###
 
   contains: (name, value) ->
-    @_addSearch "contains(#{name}, '#{value}')"
+    @_addSearch "contains(#{name},'#{value}')"
 
 
   ###
