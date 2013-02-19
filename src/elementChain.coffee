@@ -5,7 +5,7 @@ module.exports = class ElementChain extends require("./base")
 
   constructor: (nodeName, @parent) ->
     @_chain = nodeName
-    @_index = []
+    @_search = []
 
 
   ###
@@ -13,15 +13,20 @@ module.exports = class ElementChain extends require("./base")
 
   toString: () -> 
     chain = @parent.toString() 
-    chain += @_chain + "[#{@_index.join(' ')}]"
+
+    if @_search.length
+      index = @_search.join(' ')
+    else 
+      index = @_index
+
+    chain += @_chain + "[#{index}]"
     chain
 
   ###
   ###
 
   contains: (name, value) ->
-    @_index.push "contains(#{name}, '#{value}')"
-    @
+    @_addSearch "contains(#{name}, '#{value}')"
 
 
   ###
@@ -64,34 +69,42 @@ module.exports = class ElementChain extends require("./base")
   ###
 
   op: (name, op, value) ->
-    @_index.push "#{name}#{op}'#{value}'"
-    @
+    @_addSearch "#{name}#{op}'#{value}'"
 
   ###
   ###
 
   or: () ->
-    @_index.push "or"
-    @
+    @_addSearch "or"
 
   ###
   ###
 
   and: () ->
-    @_index.push "and"
-    @
+    @_addSearch "and"
 
 
   ###
   ###
 
   index: (value) ->
-    @_index = [value]
+    @_search = []
+    @_index = value
     @
 
   ###
   ###
 
   _newChain: (nodeName, parent) -> new ElementChain nodeName, @
+
+
+  ###
+  ###
+
+  _addSearch: (search) ->
+    @_search.push search
+    @
+
+
 
 
