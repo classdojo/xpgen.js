@@ -13,5 +13,9 @@
   "author": "",
   "license": "BSD",
   "readmeFilename": "README.md",
-  "gitHead": "fe9c8ad2b124fbbdd4f853602151cffec5cd1173"
+  "gitHead": "fe9c8ad2b124fbbdd4f853602151cffec5cd1173",
+  "dependencies": {
+    "chai": "1.5.x",
+    "mocha": "1.8.x"
+  }
 }
