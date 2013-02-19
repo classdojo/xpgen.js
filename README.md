@@ -137,6 +137,6 @@ xpgen.element("a").contains("class", "account").and().eq("href", "http://site.co
 ### .contains(value)
 
 ```javascript
-xpgen.element("div").attr("href").eq("http://classdojo.com")¡¡
+xpgen.element("div").attr("href").eq("http://classdojo.com")
 ```
 
