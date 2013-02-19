@@ -1,11 +1,11 @@
-class XPGen
+ElementChain = require "./elementChain"
+
+XPGen = class extends require("./base")
 
   ###
   ###
 
-  find: (selector) ->
+  _newChain: (nodeName) -> new ElementChain nodeName, @
 
 
-  ###
-  ###
-  
+module.exports = new XPGen()

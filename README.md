@@ -9,10 +9,19 @@ To be used with selenium tests
 ```javascript
 var xpgen = require("xpgen");
 
-var path = xpgen.find().id("container").toString(); // //*[@id='container']
-path = xpgen.find("div").id("container").find().class("row").toString(); // //div[@id='container']//*[contains(@class, 'row')]
-path = xpath.find().text().contains("hello").toString(); // //*[contains(text(), "hello")]
-path = xpath.find("a").attr("href", "http://classdojo.com").element("img").toString(); // //a[href='http://classdojo.com']/img[0]
+// //*[@id='container']
+var path;
+
+path = xpgen.find().eq("@id","container").toString(); 
+
+// //div[@id='container']//*[contains(@class, 'row')]
+path = xpgen.find("div").eq("@id","container").find().contains("@class", "row").toString();
+
+// //*[contains(text(), "hello")] 
+path = xpath.find().contains("text()","hello").toString(); 
+
+// //a[href='http://classdojo.com']/img[0]
+path = xpath.find("a").eq("href", "http://classdojo.com").element("img").toString(); 
 ```
 
 ## API
@@ -37,10 +46,15 @@ xpgen.element("div", "contains(@class, 'fish')"); // div[contains(@class, 'fish'
 
 ## Chain API
 
-### TextChain .text()
 
-returns a new text chain
+### .index(value)
 
+Sets the index for the element to search. 
+
+```javascript
+xpgen.element("div", 5); // div[5]
+xpgen.element("div").index(5); // div[5] 
+```
 
 ### .contains(attribute, value)
 
@@ -48,7 +62,75 @@ returns a new text chain
 xpgen.element("div").contains('text()', "tacos") // div[contains(text(), "tacos")]
 ```
 
-## TextChain API
+### .eq(attribute, value)
 
-### .contains()
+Looks for an attribute with a value **equal** to the given one
+
+```javascipt
+xpgen.element("div").eq("@data-age", 50); // div[@data-age='50']
+```
+
+### .neq(attribute, value)
+
+Looks for an attribute with a value **not equal** to the given one
+
+```javascipt
+xpgen.element("div").eq("@data-age", 50); // div[@data-age!='50']
+```
+
+### .gt(attribute, value)
+
+Looks for an attribute with a value **greater than** to the given one
+
+```javascipt
+xpgen.element("div").gt("@data-age", 50); // div[@data-age>'50']
+```
+
+### .lt(attribute, value)
+
+Looks for an attribute with a value **less than** to the given one
+
+```javascipt
+xpgen.element("div").gt("@data-age", 50); // div[@data-age<'50']
+```
+
+### .gte(attribute, value)
+
+Looks for an attribute with a value **greater than or equal to** to the given one
+
+```javascipt
+xpgen.element("div").gt("@data-age", 50); // div[@data-age>='50']
+```
+
+### .lte(attribute, value)
+
+Looks for an attribute with a value **less than or equal to** to the given one
+
+```javascipt
+xpgen.element("div").gt("@data-age", 50); // div[@data-age<='50']
+```
+
+### .or()
+
+
+```javascipt
+// div[@data-age='50' or @data-age='60']
+xpgen.element("div").eq("@data-age", 50).or().eq("@data-age", "60"); 
+```
+
+### .and()
+
+```javascipt
+// div[contains(@class, 'account') and href='http://site.com/account']
+xpgen.element("a").contains("class", "account").and().eq("href", "http://site.com/account"); 
+```
+
+
+## AttrChain API
+
+### .contains(value)
+
+```javascript
+xpgen.element("div").attr("href").eq("http://classdojo.com")¡¡
+```
 
