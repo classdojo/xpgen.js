@@ -31,83 +31,89 @@ path = xpath.find("a").eq("href", "http://classdojo.com").element("img").toStrin
 Starts a chain with the given node name
 
 ```javascript
-console.log(xpgen.find().toString()); // //*
-console.log(xpgen.find("div").toString()); // //div
+// //*
+console.log(xpgen.find().toString()); 
 
+// //div
+console.log(xpgen.find("div").toString()); 
 ```
 
-### Chain .element(nodeName, index = 0)
+### Chain .element(nodeName = "*", index = 0)
 
 ```javascript
-xpgen.element("div"); // div[0]
-xpgen.element("div", 5); // div[5]
-xpgen.element("div", "contains(@class, 'fish')"); // div[contains(@class, 'fish')]
+// div[0]
+xpgen.element("div"); 
+
+// div[5]
+xpgen.element("div", 5); 
+
+// div[contains(@class, 'fish')]
+xpgen.element("div", "contains(@class, 'fish')"); 
 ```
 
 ## Chain API
-
 
 ### .index(value)
 
 Sets the index for the element to search. 
 
 ```javascript
-xpgen.element("div", 5); // div[5]
-xpgen.element("div").index(5); // div[5] 
+// div[5]
+xpgen.element("div", 5); 
+
+// div[5] 
+xpgen.element("div").index(5); 
 ```
 
 ### .contains(attribute, value)
 
 ```javascript
-xpgen.element("div").contains('text()', "tacos") // div[contains(text(), "tacos")]
+// div[contains(text(), "tacos")]
+xpgen.element("div").contains('text()', "tacos") 
 ```
 
 ### .eq(attribute, value)
 
-Looks for an attribute with a value **equal** to the given one
-
 ```javascipt
-xpgen.element("div").eq("@data-age", 50); // div[@data-age='50']
+// div[@data-age='50']
+xpgen.element("div").eq("@data-age", 50); 
 ```
 
 ### .neq(attribute, value)
 
-Looks for an attribute with a value **not equal** to the given one
+**not equal** search:
 
 ```javascipt
-xpgen.element("div").eq("@data-age", 50); // div[@data-age!='50']
+// div[@data-age!='50']
+xpgen.element("div").eq("@data-age", 50); 
 ```
 
 ### .gt(attribute, value)
 
-Looks for an attribute with a value **greater than** to the given one
-
 ```javascipt
-xpgen.element("div").gt("@data-age", 50); // div[@data-age>'50']
+// div[@data-age>'50']
+xpgen.element("div").gt("@data-age", 50); 
 ```
 
 ### .lt(attribute, value)
 
-Looks for an attribute with a value **less than** to the given one
-
 ```javascipt
-xpgen.element("div").gt("@data-age", 50); // div[@data-age<'50']
+// div[@data-age<'50']
+xpgen.element("div").gt("@data-age", 50); 
 ```
 
 ### .gte(attribute, value)
 
-Looks for an attribute with a value **greater than or equal to** to the given one
-
 ```javascipt
-xpgen.element("div").gt("@data-age", 50); // div[@data-age>='50']
+// div[@data-age>='50']
+xpgen.element("div").gt("@data-age", 50); 
 ```
 
 ### .lte(attribute, value)
 
-Looks for an attribute with a value **less than or equal to** to the given one
-
 ```javascipt
-xpgen.element("div").gt("@data-age", 50); // div[@data-age<='50']
+// div[@data-age<='50']
+xpgen.element("div").gt("@data-age", 50); 
 ```
 
 ### .or()

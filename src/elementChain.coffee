@@ -12,7 +12,6 @@ module.exports = class ElementChain extends require("./base")
   ###
 
   toString: () -> 
-    console.log "G"
     chain = @parent.toString() 
     chain += @_chain + "[#{@_index.join(' ')}]"
     chain
