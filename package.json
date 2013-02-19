@@ -1,0 +1,17 @@
+{
+  "name": "xpgen",
+  "version": "0.0.0",
+  "description": "XPath generation library",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/classdojo/xpgen.js.git"
+  },
+  "author": "",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "gitHead": "fe9c8ad2b124fbbdd4f853602151cffec5cd1173"
+}
