@@ -1,11 +1,33 @@
 ElementChain = require "./elementChain"
+Dictionary   = require "./dictionary"
 
 XPGen = class extends require("./base")
 
   ###
   ###
 
-  _newChain: (nodeName) -> new ElementChain nodeName, @
+  constructor: () ->
+    super()
+    @_dictionary = new Dictionary()
+
+  ###
+  ###
+
+  chain: (name) -> return @_dictionary.get(name).clone()
+
+  ###
+  ###
+
+  register: (name, chain) ->
+    @_dictionary.add name, chain
+    @
+
+  ###
+  ###
+
+  _newChain: (nodeName) -> 
+    new ElementChain nodeName, @
 
 
-module.exports = new XPGen()
+module.exports = () ->
+  return new XPGen()

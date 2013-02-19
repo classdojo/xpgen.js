@@ -3,8 +3,7 @@ module.exports = class ElementChain extends require("./base")
   ###
   ###
 
-  constructor: (nodeName, @parent) ->
-    @_chain = nodeName
+  constructor: (@_nodeName, @parent) ->
     @_search = []
 
 
@@ -19,7 +18,7 @@ module.exports = class ElementChain extends require("./base")
     else 
       index = @_index
 
-    chain += @_chain + "[#{index}]"
+    chain += @_nodeName + "[#{index}]"
     chain
 
   ###
@@ -91,6 +90,36 @@ module.exports = class ElementChain extends require("./base")
     @_search = []
     @_index = value
     @
+
+  ###
+   registers this chain to the 
+  ###
+
+  register: (name) ->
+    @root().register name, @
+    @
+
+
+  ###
+  ###
+
+  root: () ->
+
+    p = @parent
+    while p.parent
+      p = p.parent
+
+    return p
+
+  ###
+   clones this chain
+  ###
+
+  clone: () ->
+    chain = new ElementChain @_nodeName, @parent
+    chain._search = @_search.concat()
+    chain._index = @_index
+    chain
 
   ###
   ###

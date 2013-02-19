@@ -7,7 +7,7 @@ To be used with selenium tests
 ### Examples
 
 ```javascript
-var xpgen = require("xpgen");
+var xpgen = require("xpgen")();
 
 // //*[@id='container']
 var path;
@@ -29,6 +29,11 @@ path = xpath.find("a").eq("href", "http://classdojo.com").element("img").toStrin
 ### Chain .find(nodeName = "*")
 
 Starts a chain with the given node name
+
+
+### Chain .chain(name)
+
+Returns a registered chain
 
 ```javascript
 // //*
@@ -129,6 +134,19 @@ xpgen.element("div").eq("@data-age", 50).or().eq("@data-age", "60");
 ```javascript
 // a[contains(@class, 'account') and href='http://site.com/account']
 xpgen.element("a").contains("class", "account").and().eq("href", "http://site.com/account"); 
+```
+
+### .register(name)
+
+registers the chain so it can be re-used
+
+```javascript
+
+// //div[contains(@class, 'container')]
+xpgen.find("div").contains("@class", "container").register("#container")
+
+// //div[contains(@class, 'container')]//*[contains(@data-name, 'craig')]
+xpgen.chain("#container").find().contains("@data-name", "craig")
 ```
 
 
