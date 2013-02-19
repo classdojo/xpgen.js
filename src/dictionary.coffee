@@ -14,7 +14,7 @@ module.exports = class
   ###
 
   add: (key, chain) ->
-    @_chains[key] = chain
+    @_chains[key] = chain.clone()
 
   ###
   ###
