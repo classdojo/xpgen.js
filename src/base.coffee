@@ -3,12 +3,12 @@ module.exports = class
   ###
   ###
 
-  find: (nodeName = "*", index = 0) -> @_newChain("//#{nodeName}").index(index)
+  find: (nodeName = "*") -> @_newChain("//#{nodeName}")
 
   ###
   ###
 
-  element: (nodeName = "*", index = 0) -> @_newChain("/#{nodeName}").index(index)
+  element: (nodeName = "*") -> @_newChain("/#{nodeName}")
 
   ###
   ###

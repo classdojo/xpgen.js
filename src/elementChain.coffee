@@ -11,15 +11,18 @@ module.exports = class ElementChain extends require("./base")
   ###
 
   toString: () -> 
-    chain = @parent.toString() 
+    chain = [@parent.toString()]
+
+    chain.push(@_nodeName)
+
 
     if @_search.length
-      index = @_search.join(' ')
-    else 
-      index = @_index
+      chain.push("[#{@_search.join(' ')}]")
 
-    chain += @_nodeName + "[#{index}]"
-    chain
+    if @_index isnt undefined
+      chain.push("[#{@_index}]")
+
+    chain.join("")
 
   ###
   ###
@@ -87,8 +90,14 @@ module.exports = class ElementChain extends require("./base")
   ###
 
   index: (value) ->
-    @_search = []
     @_index = value
+    @
+
+  ###
+  ###
+
+  search: (value) ->
+    @_search = [value]
     @
 
   ###

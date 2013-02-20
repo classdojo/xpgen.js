@@ -43,18 +43,8 @@ console.log(xpgen.find().toString());
 console.log(xpgen.find("div").toString()); 
 ```
 
-### Chain .element(nodeName = "*", index = 0)
+### Chain .element(nodeName = "*)
 
-```javascript
-// div[0]
-xpgen.element("div"); 
-
-// div[5]
-xpgen.element("div", 5); 
-
-// div[contains(@class, 'fish')]
-xpgen.element("div", "contains(@class, 'fish')"); 
-```
 
 ## Chain API
 
